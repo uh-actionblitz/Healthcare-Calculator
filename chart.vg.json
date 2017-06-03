@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v3.0.json",
+  "width": 500,
+  "height": 200,
+  "padding": 5,
+
+  "signals": [
+    {
+      "name": "family?",
+      "value": false,
+      "bind": {
+        "input": "checkbox"
+      }
+    },
+    {
+      "name": "business",
+      "value": false,
+      "bind": {
+        "input": "checkbox"
+      }
+    },
+    {
+      "name": "dragging",
+      "value": false,
+      "on": [
+        {"events": "@handle:mousedown", "update": "true"},
+        {"events": "mouseup", "update": "false"}
+      ]
+    },
+    {
+      "name": "handleIncome",
+      "value": 20000,
+      "on": [{
+        "events": "[@handle:mousedown, window:mouseup] > window:mousemove!",
+        "update": "invert('x', clamp(x(), 0, width))"
+      }]
+    },
+    {
+      "name": "currentTax",
+      "update":  
+    }
+  ],
+
+  "data": [
+    {
+      "name": "table",
+      "values": [
+        {"income": 0, "tax": 0, "business": true}, {"income": 0, "tax": 0, "business": false},
+        {"income": 21000, "tax": 0, "business": true}, {"income": 21000, "tax": 0, "business": false},
+        {"income": 41000, "tax": 200, "business": true}, {"income": 41000, "tax": 1000, "business": false},
+        {"income": 151000, "tax": 300, "business": true}, {"income": 151000, "tax": 1500, "business": false},
+        {"income": 201000, "tax": 500, "business": true}, {"income": 201000, "tax": 3000, "business": false}
+      ]
+    },
+    {
+      "name": "selected",
+      "source": "table",
+      "transform": [{
+          "type": "filter",
+          "expr": "datum.business == business"
+      }]
+    },
+    {
+      "name": "insurance",
+      "values": [
+        {"income": 0, "cost": 1000},
+        {"income": 201000, "cost": 1000}
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "linear",
+      "range": "width",
+      "domain": {"data": "table", "field": "income"}
+    },
+    {
+      "name": "y",
+      "type": "linear",
+      "range": "height",
+      "nice": true,
+      "zero": true,
+      "domain": {"data": "table", "field": "tax"}
+    }
+  ],
+
+  "axes": [
+    {"orient": "bottom", "scale": "x"},
+    {"orient": "left", "scale": "y"}
+  ],
+
+  "marks": [
+    {
+      "type": "line",
+      "from": {"data": "selected"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x", "field": "income"},
+          "y": {"scale": "y", "field": "tax"}
+        },
+        "update": {
+          "interpolate": {"value": "monotone"},
+          "fillOpacity": {"value": 1}
+        },
+        "hover": {
+          "fillOpacity": {"value": 0.5}
+        }
+      }
+    },
+    {
+      "type": "line",
+      "from": {"data": "insurance"},
+      "encode": {
+        "enter": {
+          "x": {"scale": "x", "field": "income"},
+          "y": {"scale": "y", "field": "cost"}
+        },
+        "update": {
+          "interpolate": {"value": "monotone"},
+          "fillOpacity": {"value": 1}
+        },
+        "hover": {
+          "fillOpacity": {"value": 0.5}
+        }
+      }
+    },
+    {
+      "name": "handle",
+      "type": "symbol",
+      "encode": {
+        "enter": {
+          "y": {"scale": "y", "value": 0, "offset": 1},
+          "shape": {"value": "circle"},
+          "size": {"value": 400},
+          "stroke": {"value": "#000"},
+          "strokeWidth": {"value": 0.5}
+        },
+        "update": {
+          "fill": {"signal": "dragging ? 'lemonchiffon' : '#fff'"},
+          "x": {"scale": "x", "signal": "handleIncome"}
+        },
+        "hover": {
+          "fill": {"value": "lemonchiffon"},
+          "cursor": {"value": "pointer"}
+        }
+      }
+    },
+    {
+      "name": "difference",
+      "type": "rule",
+      "encode": {
+        "enter": {
+          
+        },
+        "update": {
+          "x": {"scale": "x", "signal": "handleIncome"},
+          "x2": {"scale": "x", "signal": "handleIncome"},
+          "y": {"scale": "y", "value": 100},
+          "y2": {"scale": "y", "value": 300}
+        }
+      }
+    }
+  ]
+}
