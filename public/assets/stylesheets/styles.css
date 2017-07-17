@@ -1,0 +1,255 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+html * {
+  margin: 0; }
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  body: 100%;
+  position: relative; }
+
+body {
+  margin: 0; }
+  body #map {
+    width: 100%;
+    height: 100%;
+    z-index: 0; }
+
+h1, h2, h3, h4, h5, p, div, span {
+  font-family: sans-serif;
+  font-size: 14px; }
+
+p, div, span {
+  font-size: 12px;
+  line-height: 18px; }
+
+h1, h2, h3, h4, h5, strong {
+  font-weight: bold; }
+
+h1 {
+  font-size: 48px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 14px; }
+
+.senator-popup .leaflet-popup-tip-container {
+  margin-top: -1px; }
+
+.senator-popup {
+  padding: 0.85rem;
+  width: 320px; }
+
+.senator-popup .leaflet-popup-content:after {
+  /* clearfix */
+  content: "";
+  display: table;
+  clear: both; }
+
+.senator-image-container {
+  float: left;
+  margin-right: 1rem;
+  width: 100px; }
+
+.senator-image-container img {
+  width: 100%; }
+
+.senator-info {
+  font-size: .875rem;
+  margin-top: 1rem;
+  padding: 1rem; }
+
+.senator-info .votes-no {
+  color: red; }
+
+.senator-info .votes-yes {
+  color: black;
+  font-weight: bold; }
+
+.contact-button, .contact-link {
+  background-color: #1274b9;
+  border: 0;
+  border-radius: 4px;
+  clear: both;
+  margin-top: 1rem;
+  padding: 0.5rem 0;
+  font-size: .875rem;
+  text-transform: uppercase;
+  width: 100%;
+  color: white !important;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold; }
+
+#form-area {
+  top: 15px;
+  left: 60px;
+  position: absolute;
+  background: white;
+  padding: 10px;
+  border: solid #c5c5c5 1px;
+  border-radius: 4px;
+  width: 270px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 1px 0px; }
+  #form-area i.fa-search {
+    font-size: 16px;
+    color: #a4a4a4;
+    position: absolute;
+    left: 17px;
+    top: 15px; }
+  #form-area input#address {
+    outline: none;
+    font-size: 16px;
+    width: calc(100% - 27px);
+    padding-left: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    position: relative; }
+  #form-area sub {
+    color: gray;
+    font-style: italic;
+    display: block;
+    text-align: center; }
+  #form-area #search-results {
+    margin-top: 10px; }
+    #form-area #search-results li:first-child {
+      border-top: 2px solid gray;
+      padding-top: 15px; }
+    #form-area #search-results li div {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      display: inline-block;
+      overflow: hidden; }
+      #form-area #search-results li div a {
+        font-size: 11px;
+        color: #0172ce; }
+
+.parties .party {
+  display: inline-block;
+  padding: 5px 6px;
+  border-radius: 40em;
+  font-family: sans-serif;
+  color: white;
+  margin-right: 5px;
+  font-size: 12px;
+  font-weight: bold; }
+  .parties .party.D {
+    background-color: #0172ce; }
+  .parties .party.IP {
+    display: none; }
+  .parties .party.WF {
+    display: none; }
+  .parties .party.R {
+    background-color: #f1242b; }
+  .parties .party.IDC {
+    background-color: #3D1255; }
+
+#senator-info {
+  position: absolute;
+  z-index: 100;
+  right: 10px;
+  top: 10px; }
+  #senator-info > div {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    border: solid #c5c5c5 1px;
+    box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.2);
+    width: 330px; }
+    #senator-info > div .close {
+      position: absolute;
+      right: 10px;
+      font-size: 20px;
+      top: 10px;
+      color: gray; }
+    #senator-info > div .your-senator {
+      color: lightgray;
+      margin-bottom: 10px; }
+    #senator-info > div .basic-info .rep-pic {
+      width: 70px;
+      float: left;
+      margin-right: 10px; }
+    #senator-info > div .basic-info::after {
+      content: '';
+      display: block;
+      clear: both; }
+    #senator-info > div .action-area .not {
+      color: red; }
+    #senator-info > div .action-area sub {
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-top: 10px;
+      display: inline-block;
+      color: gray; }
+    #senator-info > div .action-area blockquote {
+      margin-left: 10px;
+      padding-lefT: 10px;
+      border-left: solid lightgray 5px;
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    #senator-info > div .website a {
+      text-align: center;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+      color: white;
+      background-color: #0172ce;
+      font-family: sans-serif; }

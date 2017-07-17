@@ -1,0 +1,17 @@
+@import 'partials/reset';
+@import 'partials/variables';
+@import 'partials/base';
+
+html, body {
+  padding : 0;
+  margin: 0;
+  height: 100%;
+  position: relative;
+}
+
+
+#calculator {
+  width: 100vmin;
+  height: 100vmin;
+  background-color: whitesmoke;
+}

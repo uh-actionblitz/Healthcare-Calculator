@@ -37,7 +37,7 @@
     },
     {
       "name": "currentTax",
-      "update":  
+      "update":
     }
   ],
 
@@ -150,9 +150,6 @@
       "name": "difference",
       "type": "rule",
       "encode": {
-        "enter": {
-          
-        },
         "update": {
           "x": {"scale": "x", "signal": "handleIncome"},
           "x2": {"scale": "x", "signal": "handleIncome"},
