@@ -3,6 +3,7 @@
 <head>
   <title>My index</title>
   <!-- inject:css -->
+  <link rel="stylesheet" href="/stylesheets/vendor/d3.slider/d3.slider.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
   <link rel="stylesheet" href="/stylesheets/vendor/font-awesome/css/font-awesome.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
   <link rel="stylesheet" href="/stylesheets/vendor/font-awesome/css/font-awesome.min.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
   <link rel="stylesheet" href="/stylesheets/vendor/leaflet/leaflet.css?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709">
@@ -10,24 +11,14 @@
   <!-- endinject -->
 </head>
 <body>
-  <div id="map">
-  </div>
-  <div id='senator-info'></div>
-  <div id='stories-container'><ul id='stories-list'></ul></div>
-  <div id='form-area'>
-    <form>
-      <input type='text' placeholder="Address" id="address" autocomplete="off"/>
-      <sub>Type in your address to find your state senator</sub>
-      <i class="fa fa-search" aria-hidden="true"></i>
-      <div id='search-results'><ul></ul></div>
-    </form>
+  <div id="calculator">
   </div>
   <!-- inject:js -->
   <script src="/javascript/vendor/jquery.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
-  <script src="/javascript/vendor/leaflet.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/bundle.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
+  <script src="/javascript/vendor/d3.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
+  <script src="/javascript/vendor/d3.slider.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <script src="/javascript/vendor/deparam.min.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
-  <script src="/javascript/vendor/pip.js?hash=da39a3ee5e6b4b0d3255bfef95601890afd80709"></script>
   <!-- endinject -->
 </body>
 </html>
