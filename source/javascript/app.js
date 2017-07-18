@@ -1,14 +1,15 @@
 class App {
   constructor(options) {
 
-    this._listenToWindow();
     this.render();
+    this._listenToWindow();
   }
 
   render() {
     //Loading data...
     this.AnnualSalaryControl = new AnnualSalaryControl();
     this.PremiumsControl = new PremiumsControl();
+    this.Stage = new Stage();
   }
 
   _listenToWindow() {
@@ -17,6 +18,7 @@ class App {
       if (window.location.hash && window.location.hash.length > 0)
       {
         const hash = $.deparam(window.location.hash.substring(1));
+        this.Stage.highlight(hash);
       }
     });
     $(window).trigger("hashchange");
