@@ -25,6 +25,7 @@ body { text-align: center;}
   bottom: 0;
   .d3-slider-handle {
     height: 2.2em;
+    cursor: col-resize;
     &::after {
       content: "";
       height: 87vmin;
@@ -55,6 +56,7 @@ body { text-align: center;}
   top: 0;
   .d3-slider-handle {
     width: 2.2em;
+    cursor: row-resize;
 
     &::after {
       content: "";

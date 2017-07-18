@@ -6,32 +6,43 @@ class Stage {
   render() {
     console.log("XXX");
 
-    var s = d3.scale.log().domain([1,50]).range([1,200000]);
+    var s2 = d3.scale.log().domain([1,100]).range([1,20]);
+    var s = d3.scale.log().domain([1,100]).range([1,200000]);
     var xTicks = [];
     var yValues = [];
 
+    var curr = -1;
     xTicks.push(20000);
     yValues.push(0);
 
     for (var x=2; x<=50; x++) {
       var xVal = s(x);
 
+      if (curr != Math.floor(s2(x))) {
+        curr = Math.floor(s2(x));
+      } else {
+        continue;
+      }
+      console.log("LOG", Math.floor(s2(x)));
+
       xTicks.push(Math.floor(s(x)/100) * 100);
       console.log("Pushing", Math.floor(s(x)/100) * 100)
-      if (xVal < 40000) {
+      if (xVal < 25000) {
         yValues.push(0)
-      } else if (xVal > 40000 && xVal <= 60000) {
-        yValues.push(Math.floor(xVal * 0.04 / 12));
-      } else if (xVal > 60000 && xVal <= 80000) {
-        yValues.push(Math.floor(xVal * 0.06 / 12));
-      } else if (xVal > 80000 && xVal <= 100000) {
-        yValues.push(Math.floor(xVal * 0.08 / 12));
-      } else if (xVal > 100000 && xVal <= 120000) {
+      } else if (xVal > 25000 && xVal <= 50000) {
+        yValues.push(Math.floor(xVal * 0.09 / 12));
+      } else if (xVal > 50000 && xVal <= 75000) {
+        yValues.push(Math.floor(xVal * 0.11 / 12));
+      } else if (xVal > 75000 && xVal <= 100000) {
         yValues.push(Math.floor(xVal * 0.12 / 12));
-      } else if (xVal > 120000 ) {
+      } else if (xVal > 100000 && xVal <= 200000) {
+        yValues.push(Math.floor(xVal * 0.14 / 12));
+      } else if (xVal > 200000 ) {
         yValues.push(Math.floor(xVal * 0.16 / 12));
       }
     }
+    xTicks.push(200000);
+    yValues.push(Math.floor(200000 * 0.16 / 12))
 
     // console.log(xTicks);
     // var data_test_original = ['data1'].concat(yValues);

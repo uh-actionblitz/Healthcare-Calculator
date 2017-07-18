@@ -93,7 +93,8 @@ body {
   position: absolute;
   bottom: 0; }
   #annual-salary .d3-slider-handle {
-    height: 2.2em; }
+    height: 2.2em;
+    cursor: col-resize; }
     #annual-salary .d3-slider-handle::after {
       content: "";
       height: 87vmin;
@@ -118,7 +119,8 @@ body {
   right: 0;
   top: 0; }
   #premiums .d3-slider-handle {
-    width: 2.2em; }
+    width: 2.2em;
+    cursor: row-resize; }
     #premiums .d3-slider-handle::after {
       content: "";
       width: 87vmin;
