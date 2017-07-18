@@ -1,13 +1,14 @@
-
 class App {
   constructor(options) {
-    
+
     this._listenToWindow();
     this.render();
   }
 
   render() {
     //Loading data...
+    this.AnnualSalaryControl = new AnnualSalaryControl();
+    this.PremiumsControl = new PremiumsControl();
   }
 
   _listenToWindow() {

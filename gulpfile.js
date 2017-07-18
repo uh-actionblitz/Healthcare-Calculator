@@ -36,6 +36,7 @@ gulp.task('build-js', function() {
           .pipe(plumber())
           .pipe(sourcemaps.init())
           .pipe(order([
+            'source/javascript/classes/**/*.js',
             'source/javascript/classes/*.js',
             'source/javascript/app.js',
           ], { base: './' }))
@@ -84,7 +85,7 @@ gulp.task('inject', function () {
                           'public/assets/stylesheets/*.css'], {read: false})
                           .pipe(order([
                             'public/assets/javascript/vendor/jquery.min.js',
-                            'public/assets/javascript/vendor/leaflet.min.js',
+                            'public/assets/javascript/vendor/**/*.js',
                             'public/assets/javascript/**/*.js',
                             'public/assets/stylesheets/vendor/**/*.css',
                             'public/assets/javascript/*.js',
