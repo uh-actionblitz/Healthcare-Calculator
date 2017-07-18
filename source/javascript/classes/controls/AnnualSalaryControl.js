@@ -1,8 +1,9 @@
 class AnnualSalaryControl {
 
   constructor() {
-    this.target = d3.select('#annual-salary-slider');
+    this.target = d3.select('#annual-salary');
     this.control = new CentralController();
+    this.timeout = null;
     this.render();
   }
 
@@ -15,7 +16,10 @@ class AnnualSalaryControl {
         .axis(d3.svg.axis().tickValues([1, 3, 5, 7, 10]).tickFormat((d) => "$" + commasFormatter(d/10 * 300)+"k"))
         .scale(x)
         .on("slide", (evt, value)=>{
-          that.control.update({ salary: parseInt(value/10 * 300000) });
+          clearTimeout(this.timeout);
+          this.timeout = setTimeout(() => {
+            that.control.update({ salary: parseInt(value/10 * 300000) });
+          }, 300);
         })
     );
   }

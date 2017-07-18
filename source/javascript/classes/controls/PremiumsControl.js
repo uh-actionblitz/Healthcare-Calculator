@@ -3,17 +3,22 @@ class PremiumsControl {
   constructor() {
     this.target = d3.select('#premiums');
     this.control = new CentralController();
+    this.timeout = null;
     this.render();
   }
 
   render() {
     const that = this;
-    var x = d3.scale.log();
+    var x = d3.scale.linear().invert();
     this.target.call(
       d3.slider()
-        .min(0).max(5000)
+        .min(1000).max(0)
+        .axis(d3.svg.axis().tickFormat((d) => `$${d}`).orient('right') )
         .on("slide", (evt, value)=>{
-          that.control.update({ premium: value });
+          clearTimeout(this.timeout);
+          this.timeout = setTimeout(() => {
+            that.control.update({ premium: Math.floor(1000-value) });
+          }, 300);
         })
         .orientation("vertical")
     );
