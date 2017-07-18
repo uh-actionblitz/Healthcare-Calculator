@@ -9,9 +9,73 @@ html, body {
   position: relative;
 }
 
-
+body { text-align: center;}
 #calculator {
-  width: 100vmin;
-  height: 100vmin;
+  display: inline-block;
+  width: 90vmin;
+  height: 90vmin;
   background-color: whitesmoke;
+  position: relative;
+}
+
+#annual-salary {
+  height: 1.8em;
+  width: calc(100% - 33px);
+  position: absolute;
+  bottom: 0;
+  .d3-slider-handle {
+    height: 2.2em;
+    cursor: col-resize;
+    &::after {
+      content: "";
+      height: 87vmin;
+      border-right: 3px solid black;
+      position: absolute;
+      bottom: 30px;
+    }
+
+    #chosen-salary {
+      transform: rotate(-38deg);
+      position: absolute;
+      background-color: yellow;
+      padding: 3px 7px;
+      border-radius: 27px 0 34px 24px;
+      top: 44px;
+      right: -3px;
+    }
+  }
+  .d3-slider-axis-bottom {
+    top: 1.8em;
+  }
+}
+#premiums {
+  width: 1.8em;
+  height: calc(100% - 33px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  .d3-slider-handle {
+    width: 2.2em;
+    cursor: row-resize;
+
+    &::after {
+      content: "";
+      width: 87vmin;
+      border-top: 3px solid black;
+      position: absolute;
+      right: 30px;
+      top: 6px;
+    }
+  }
+  .d3-slider-axis-right {
+    left: 1.8em;
+  }
+}
+#stage {
+  width: calc(100% - 30px);
+  height: calc(100% - 30px);
+  background-color: lightgray;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
