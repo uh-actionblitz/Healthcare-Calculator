@@ -82,11 +82,10 @@ body {
 
 #calculator {
   display: inline-block;
-  width: 700px;
-  height: 500px;
+  width: 90vmin;
+  height: 90vmin;
   background-color: whitesmoke;
-  position: relative;
-  margin-right: 50px; }
+  position: relative; }
 
 #annual-salary {
   height: 1.8em;
@@ -98,7 +97,7 @@ body {
     cursor: col-resize; }
     #annual-salary .d3-slider-handle::after {
       content: "";
-      height: 470px;
+      height: 87vmin;
       border-right: 3px solid black;
       position: absolute;
       bottom: 30px; }
@@ -124,18 +123,11 @@ body {
     cursor: row-resize; }
     #premiums .d3-slider-handle::after {
       content: "";
-      width: 700px;
+      width: 87vmin;
       border-top: 3px solid black;
       position: absolute;
       right: 30px;
       top: 6px; }
-    #premiums .d3-slider-handle #chosen-premium {
-      position: absolute;
-      background-color: yellowgreen;
-      padding: 3px 7px;
-      border-radius: 34px;
-      top: -4px;
-      left: 35px; }
   #premiums .d3-slider-axis-right {
     left: 1.8em; }
 
@@ -146,81 +138,3 @@ body {
   position: absolute;
   top: 0;
   left: 0; }
-
-#container {
-  padding-top: 50px;
-  display: flex; }
-  #container > div {
-    display: inline-block; }
-
-#calculator {
-  width: 750px;
-  min-width: 750px; }
-
-#form-area {
-  flex-grow: 1; }
-  #form-area label {
-    display: block;
-    font-size: 18px;
-    font-weight: bold; }
-  #form-area input[type=text] {
-    font-size: 24px;
-    text-align: center;
-    padding: 5px 0;
-    margin-top: 5px;
-    position: relative;
-    width: 100%; }
-  #form-area .form-group {
-    width: 30%;
-    display: inline-block;
-    margin: 5%; }
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 3px; }
-
-.line-gold {
-  fill: none;
-  stroke: gold;
-  stroke-width: 2px; }
-
-.line-silver {
-  fill: none;
-  stroke: gray;
-  stroke-width: 2px; }
-
-.line-bronze {
-  fill: none;
-  stroke: brown;
-  stroke-width: 2px; }
-
-.axis--x {
-  transform: translate(0, 0); }
-
-.axis--x text {
-  font: 10px sans-serif; }
-
-.axis--y text {
-  font: oblique 15px Georgia, serif; }
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges; }
-
-#results {
-  display: flex; }
-  #results .result-area {
-    display: inline-block;
-    text-align: center;
-    flex-grow: 1; }
-    #results .result-area .result-details {
-      text-align: center;
-      padding-left: 20px; }
-
-#recommendation {
-  padding: 0 50px; }
-  #recommendation h2 {
-    line-height: 1.25; }
