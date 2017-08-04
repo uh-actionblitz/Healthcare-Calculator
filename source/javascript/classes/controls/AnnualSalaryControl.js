@@ -1,3 +1,5 @@
+const commasFormatter = d3.format(",.0f")
+
 class AnnualSalaryControl {
 
   constructor() {
@@ -8,7 +10,10 @@ class AnnualSalaryControl {
     this.value = MEDIAN_INCOME;
     this.render();
 
-    var commasFormatter = d3.format(",.0f")
+    this.$salaryForm = $("input[name=annual-salary]");
+
+    this.$salaryForm.val(this.value);
+
     $("#annual-salary .d3-slider-handle").append(`<span id='chosen-salary'>$${commasFormatter(this.value)}</span>`)
   }
 
@@ -34,6 +39,7 @@ class AnnualSalaryControl {
             that.control.update({ salary: that.value });
           }, 300);
           $("#chosen-salary").text("$" + commasFormatter(that.value));
+          this.$salaryForm.val(this.value);
         })
     );
   }

@@ -16,6 +16,7 @@ body { text-align: center;}
   height: $height;
   background-color: whitesmoke;
   position: relative;
+  margin-right: 50px;
 }
 
 #annual-salary {
@@ -60,11 +61,19 @@ body { text-align: center;}
 
     &::after {
       content: "";
-      width: $width - 30px;
+      width: $width;
       border-top: 3px solid black;
       position: absolute;
       right: 30px;
       top: 6px;
+    }
+    #chosen-premium {
+      position: absolute;
+      background-color: yellowgreen;
+      padding: 3px 7px;
+      border-radius: 34px;
+      top: -4px;
+      left: 35px;
     }
   }
   .d3-slider-axis-right {
@@ -85,6 +94,7 @@ body { text-align: center;}
 }
 
 #container {
+  padding-top: 50px;
   display: flex;
   & > div {
     display: inline-block;
@@ -97,6 +107,30 @@ body { text-align: center;}
 
 #form-area {
   flex-grow: 1;
+
+  label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold
+  }
+
+  input[type=text] {
+    font-size: 24px;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 5px;
+    position: relative;
+    width: 100%;
+  }
+  input[name=annual-salary] {
+  }
+
+  .form-group {
+    width: 30%;
+    display: inline-block;
+    margin: 5%;
+
+  }
 }
 
 
@@ -141,4 +175,22 @@ body { text-align: center;}
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+#results {
+  display: flex;
+  .result-area {
+    display: inline-block;
+    text-align: center;
+    flex-grow: 1;
+    .result-details {
+      text-align: center;
+      padding-left: 20px;
+    }
+  }
+}
+
+#recommendation {
+  padding: 0 50px;
+  h2 { line-height: 1.25;}
 }

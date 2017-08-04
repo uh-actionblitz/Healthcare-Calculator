@@ -72,50 +72,50 @@ class Stage {
         .attr("class", "line")
         .attr("d", line);
 
-    var age = 28;
+    var age = 45;
 
     // Average prices per age: https://www.healthpocket.com/individual-health-insurance/gold-health-plans#premiums
-    var goldDeductible = 1165/12;
-    svg.append("path")
-        .datum(d3.range(15000,300000,2000).map(function(d) {
-          if (age < 40) {
-            return [d, 380.98 + goldDeductible];
-          } else if (age >= 40 && age < 50) {
-            return [d, 599.16 + goldDeductible];
-          } else {
-            return [d, 909.22 + goldDeductible];
-          }
-        })).attr("class", "line-gold")
-        .attr("d", line);
-
-
-    // Average prices per age: https://www.healthpocket.com/individual-health-insurance/silver-health-plans#premiums
-    var silverDeductible = 3177/12;
-    svg.append("path")
-        .datum(d3.range(15000,300000,2000).map(function(d) {
-          if (age < 40) {
-            return [d, 351.02 + silverDeductible];
-          } else if (age >= 40 && age < 50) {
-            return [d, 490.75 + silverDeductible];
-          } else {
-            return [d, 744.99 + silverDeductible];
-          }
-        })).attr("class", "line-silver")
-        .attr("d", line);
-
-    // Average prices per age: https://www.healthpocket.com/individual-health-insurance/silver-health-plans#premiums
-    var silverDeductible = 5731/12;
-    svg.append("path")
-        .datum(d3.range(15000,300000,2000).map(function(d) {
-          if (age < 40) {
-            return [d, 257.68 + silverDeductible];
-          } else if (age >= 40 && age < 50) {
-            return [d, 405.28	 + silverDeductible];
-          } else {
-            return [d, 615.15 + silverDeductible];
-          }
-        })).attr("class", "line-bronze")
-        .attr("d", line);
+    // var goldDeductible = 1165/12;
+    // svg.append("path")
+    //     .datum(d3.range(15000,300000,2000).map(function(d) {
+    //       if (age < 40) {
+    //         return [d, 380.98 + goldDeductible];
+    //       } else if (age >= 40 && age < 50) {
+    //         return [d, 599.16 + goldDeductible];
+    //       } else {
+    //         return [d, 909.22 + goldDeductible];
+    //       }
+    //     })).attr("class", "line-gold")
+    //     .attr("d", line);
+    //
+    //
+    // // Average prices per age: https://www.healthpocket.com/individual-health-insurance/silver-health-plans#premiums
+    // var silverDeductible = 3177/12;
+    // svg.append("path")
+    //     .datum(d3.range(15000,300000,2000).map(function(d) {
+    //       if (age < 40) {
+    //         return [d, 351.02 + silverDeductible];
+    //       } else if (age >= 40 && age < 50) {
+    //         return [d, 490.75 + silverDeductible];
+    //       } else {
+    //         return [d, 744.99 + silverDeductible];
+    //       }
+    //     })).attr("class", "line-silver")
+    //     .attr("d", line);
+    //
+    // // Average prices per age: https://www.healthpocket.com/individual-health-insurance/silver-health-plans#premiums
+    // var silverDeductible = 5731/12;
+    // svg.append("path")
+    //     .datum(d3.range(15000,300000,2000).map(function(d) {
+    //       if (age < 40) {
+    //         return [d, 257.68 + silverDeductible];
+    //       } else if (age >= 40 && age < 50) {
+    //         return [d, 405.28	 + silverDeductible];
+    //       } else {
+    //         return [d, 615.15 + silverDeductible];
+    //       }
+    //     })).attr("class", "line-bronze")
+    //     .attr("d", line);
   }
 
 

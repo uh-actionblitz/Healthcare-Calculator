@@ -85,7 +85,8 @@ body {
   width: 700px;
   height: 500px;
   background-color: whitesmoke;
-  position: relative; }
+  position: relative;
+  margin-right: 50px; }
 
 #annual-salary {
   height: 1.8em;
@@ -123,11 +124,18 @@ body {
     cursor: row-resize; }
     #premiums .d3-slider-handle::after {
       content: "";
-      width: 670px;
+      width: 700px;
       border-top: 3px solid black;
       position: absolute;
       right: 30px;
       top: 6px; }
+    #premiums .d3-slider-handle #chosen-premium {
+      position: absolute;
+      background-color: yellowgreen;
+      padding: 3px 7px;
+      border-radius: 34px;
+      top: -4px;
+      left: 35px; }
   #premiums .d3-slider-axis-right {
     left: 1.8em; }
 
@@ -140,6 +148,7 @@ body {
   left: 0; }
 
 #container {
+  padding-top: 50px;
   display: flex; }
   #container > div {
     display: inline-block; }
@@ -150,6 +159,21 @@ body {
 
 #form-area {
   flex-grow: 1; }
+  #form-area label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold; }
+  #form-area input[type=text] {
+    font-size: 24px;
+    text-align: center;
+    padding: 5px 0;
+    margin-top: 5px;
+    position: relative;
+    width: 100%; }
+  #form-area .form-group {
+    width: 30%;
+    display: inline-block;
+    margin: 5%; }
 
 .line {
   fill: none;
@@ -185,3 +209,18 @@ body {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges; }
+
+#results {
+  display: flex; }
+  #results .result-area {
+    display: inline-block;
+    text-align: center;
+    flex-grow: 1; }
+    #results .result-area .result-details {
+      text-align: center;
+      padding-left: 20px; }
+
+#recommendation {
+  padding: 0 50px; }
+  #recommendation h2 {
+    line-height: 1.25; }
