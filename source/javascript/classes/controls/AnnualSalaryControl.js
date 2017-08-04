@@ -15,16 +15,21 @@ class AnnualSalaryControl {
   render() {
 
     const that = this;
-    var x = d3.scale.log();
+    // var x = d3.scale.log();
+    var width = $("#stage").width();
+    var x = d3.scale.log()
+              .domain([15000,300000]);
+
     var commasFormatter = d3.format(",.0f")
     this.target.call(
       d3.slider()
-        .axis(d3.svg.axis().tickValues([1, 3, 5, 7, 10]).tickFormat((d) => "$" + commasFormatter(d/10 * 200)+"k"))
+        .axis(d3.svg.axis().tickFormat((d) => "$" + commasFormatter(d/1000)+"k"))
         .scale(x)
-        .value((that.value/200000)  * 10)
+        .value(that.value)//(that.value/200000)  * 10
         .on("slide", (evt, value)=>{
+          console.log(value);
           clearTimeout(this.timeout);
-          that.value = parseInt(value/10 * 200000);
+          that.value = parseInt(value);
           that.timeout = setTimeout(() => {
             that.control.update({ salary: that.value });
           }, 300);

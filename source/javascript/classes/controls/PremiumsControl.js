@@ -16,13 +16,13 @@ class PremiumsControl {
     var x = d3.scale.linear().invert();
     this.target.call(
       d3.slider()
-        .value(2700 - total_cost)
-        .min(2700).max(0)
+        .value(4000 - total_cost)
+        .min(4000).max(0)
         .axis(d3.svg.axis().tickFormat((d) => `$${d}`).orient('right') )
         .on("slide", (evt, value)=>{
           clearTimeout(this.timeout);
           this.timeout = setTimeout(() => {
-            that.control.update({ premium: Math.floor(2700-value) });
+            that.control.update({ premium: Math.floor(4000-value) });
           }, 300);
         })
         .orientation("vertical")
