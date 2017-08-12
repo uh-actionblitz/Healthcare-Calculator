@@ -85,8 +85,47 @@ h5 {
 #chart .x--axis.x--axis--income .tick line {
   stroke: lightgray; }
 
-#chart .contribution {
+#chart .current-expense {
+  stroke-width: 1px;
+  stroke: blue; }
+
+#chart .bar .contribution {
   fill: red; }
 
-#chart .employer {
+#chart .bar .employer {
   fill: pink; }
+
+#chart [selected=true] .contribution {
+  fill: green; }
+
+#chart [selected=true] .employer {
+  fill: lightgreen; }
+
+.slider .ticks {
+  font: 10px sans-serif; }
+
+.slider .track,
+.slider .track-inset,
+.slider .track-overlay {
+  stroke-linecap: round; }
+
+.slider .track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px; }
+
+.slider .track-inset {
+  stroke: #ddd;
+  stroke-width: 8px; }
+
+.slider .track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: crosshair; }
+
+.slider .handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px; }

@@ -24,10 +24,31 @@
     }
   }
 
-  .contribution {
-    fill: red;
+
+
+  .current-expense {
+    stroke-width: 1px;
+    stroke: blue;
   }
-  .employer {
-    fill: pink;
+
+  .bar {
+    .contribution {
+      fill: red;
+    }
+    .employer {
+      fill: pink;
+    }
+  }
+
+  [selected=true] {
+    .contribution {
+      fill: green;
+    }
+    .employer {
+      fill: lightgreen;
+    }
   }
 }
+
+
+@import 'partials/slider';
