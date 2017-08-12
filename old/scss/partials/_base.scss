@@ -1,0 +1,17 @@
+
+h1,h2,h3,h4,h5,p,div,span {
+  font-family: $sans-serif;
+  font-size: 14px;
+}
+p,div,span {
+  font-size: 12px;
+  line-height: 18px;
+}
+h1, h2, h3, h4, h5, strong {
+  font-weight: bold;
+}
+h1 { font-size: 48px;  }
+h2 { font-size: 30px;  }
+h3 { font-size: 24px;  }
+h4 { font-size: 18px;  }
+h5 { font-size: 14px;  }
