@@ -24,6 +24,29 @@ $(()=>{
   const computeEmployerContrib = (d) => {
     return computeContribution(d) * 0.8;
   }
+
+  const updateContribText = (d) => {
+    const totalContribution = computeContribution(d);
+    const selfShare = totalContribution * 0.2 , bossShare = totalContribution * 0.8;
+    const data = d3.select(".bar[selected=true]").attr("data-val");
+    const padding = 5;
+    const y = contribScale(computeContribution(data));
+    const x = incomeScale(data);
+
+    console.log("XX", data, y);
+
+    barValue.attr("transform",`translate(${x}, ${y})`);
+    var textChild = barValue.select("text");
+    var rectChild = barValue.select("rect")
+    var bbox = textChild.node().getBBox();
+
+    console.log(bbox);
+    rectChild.attr("width", bbox.width + padding)
+      .attr("height", bbox.height + padding);
+
+    textChild.text(d3.format("$.2s")(parseInt(totalContribution)));
+
+  }
   //1. Show a bar chart
 
   //2. Bar chart should have a guide at the top of it
@@ -85,7 +108,12 @@ $(()=>{
   var bars = svg.append("g")
                 .attr("transform", "translate(" + margin.left/2 + "," + margin.top + ")");;
 
-  console.log(dataPoints.map(computeContribution));
+  var barValue = svg.append("g").attr("class", "bar--value-container");
+      barValue.append("rect").attr("class", "bar-container");
+      barValue.append("text").attr("class", "bar--value")
+      console.log(barValue.select("text"))
+                  ;
+  //
 
   // Build the bars
   var barsItem = bars.selectAll(".bar")
@@ -123,15 +151,14 @@ $(()=>{
 
   container.call(calculatorSlider({
     scale: incomeScale,
+    initialValue: INCOME,
     callback: (value) => {
-      console.log("test", Math.floor(incomeScale(value)/(barWidth+barGap)) ) ;
       var selectedItem = Math.floor(incomeScale(value)/(barWidth+barGap));
       barsItem.attr("selected", (d, ind) => selectedItem === ind);
+      updateContribText(value);
     }
-  }))
-
-  // Build the line
-  console.log((DEDUCTIBLE/12) + PREMIUM, contribScale((DEDUCTIBLE/12) + PREMIUM));
+  }));
+  updateContribText(INCOME);
 
   svg.append("g")
         .attr("transform", "translate(" + margin.left/2 + "," + margin.top + ")")

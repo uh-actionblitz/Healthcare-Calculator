@@ -90,16 +90,27 @@ h5 {
   stroke: blue; }
 
 #chart .bar .contribution {
-  fill: red; }
+  fill: #AAAAAA; }
 
 #chart .bar .employer {
-  fill: pink; }
+  fill: #CCCCCC; }
 
 #chart [selected=true] .contribution {
-  fill: green; }
+  fill: gold; }
 
 #chart [selected=true] .employer {
-  fill: lightgreen; }
+  fill: lightyellow; }
+
+#chart .bar--value-container rect.bar-container {
+  fill: lightyellow;
+  stroke: gold;
+  stroke-width: 3px;
+  transform: translate(0px, -5px); }
+
+#chart .bar--value-container text.bar--value {
+  transform: translate(2px, 8px);
+  font-family: sans-serif;
+  font-size: 12px; }
 
 .slider .ticks {
   font: 10px sans-serif; }

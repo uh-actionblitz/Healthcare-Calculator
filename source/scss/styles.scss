@@ -33,19 +33,35 @@
 
   .bar {
     .contribution {
-      fill: red;
+      fill: #AAAAAA;
     }
     .employer {
-      fill: pink;
+      fill: #CCCCCC;
     }
   }
 
   [selected=true] {
     .contribution {
-      fill: green;
+      fill: gold;
     }
     .employer {
-      fill: lightgreen;
+      fill: lightyellow;
+    }
+  }
+
+  .bar--value-container {
+
+    rect.bar-container {
+      fill: lightyellow;
+      stroke: gold;
+      stroke-width: 3px;
+      transform: translate(0px, -5px);
+    }
+
+    text.bar--value {
+      transform: translate(2px, 8px);
+      font-family: sans-serif;
+      font-size: 12px;
     }
   }
 }
