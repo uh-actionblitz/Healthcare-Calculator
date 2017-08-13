@@ -32,7 +32,7 @@ class AnnualSalaryControl {
         .scale(x)
         .value(that.value)//(that.value/200000)  * 10
         .on("slide", (evt, value)=>{
-          console.log(value);
+          (value);
           clearTimeout(this.timeout);
           that.value = parseInt(value);
           that.timeout = setTimeout(() => {

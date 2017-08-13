@@ -5,7 +5,7 @@ class CentralController {
   }
 
   update(options = {}) {
-    console.log(options);
+    (options);
     if (
       window.location.hash &&
       window.location.hash.length > 0
@@ -13,7 +13,7 @@ class CentralController {
       var hash = $.deparam(window.location.hash.substring(1));
       window.location.hash = $.param(Object.assign(hash, options));
     } else {
-      console.log(options);
+      (options);
       window.location.hash = $.param(options);
     }
   }

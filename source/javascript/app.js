@@ -2,6 +2,9 @@ const INCOME = 60000,
       DEDUCTIBLE = 5000,
       PREMIUM = 600,
       EMPLOYED = true;
+
+const currentMonthly = (DEDUCTIBLE/12) + PREMIUM;
+
 $(()=>{
 
 
@@ -33,14 +36,14 @@ $(()=>{
     const y = contribScale(computeContribution(data));
     const x = incomeScale(data);
 
-    console.log("XX", data, y);
 
-    barValue.attr("transform",`translate(${x}, ${y})`);
+
+    barValue.attr("transform",`translate(${x - (totalContribution < currentMonthly ? 30 : 0)}, ${y})`);
     var textChild = barValue.select("text");
     var rectChild = barValue.select("rect")
     var bbox = textChild.node().getBBox();
 
-    console.log(bbox);
+
     rectChild.attr("width", bbox.width + padding)
       .attr("height", bbox.height + padding);
 
@@ -61,7 +64,7 @@ $(()=>{
       barWidth = 18,
       barGap = 2;
 
-  console.log(svg.attr("width"));
+
   // SCALES
   var incomeScale = d3.scaleLog()
                     .domain([Math.pow(10,4), 6 * Math.pow(10,5)])
@@ -81,7 +84,6 @@ $(()=>{
   var barCount = width/(barWidth + barGap);
   var dataPoints = [];
 
-  const currentMonthly = contribScale((DEDUCTIBLE/12) + PREMIUM);
 
   //Get data points
   while (dataPoints.length * (barWidth + barGap) < width) {
@@ -93,7 +95,7 @@ $(()=>{
   var yAxis = d3.axisRight(contribScale)
                 .tickFormat((d)=>d3.format("$.2s")(d));
 
-  // console.log("FINAL", dataPoints);
+  //
 
   svg.append("g")
       .attr("class","y--axis y--axis--monthly")
@@ -111,7 +113,7 @@ $(()=>{
   var barValue = svg.append("g").attr("class", "bar--value-container");
       barValue.append("rect").attr("class", "bar-container");
       barValue.append("text").attr("class", "bar--value")
-      console.log(barValue.select("text"))
+
                   ;
   //
 
@@ -141,7 +143,7 @@ $(()=>{
         })
         .attr("width", barWidth)
         .attr("height", (d) => height - contribScale(computeEmployerContrib(d)))
-  // console.log(incomeScale);
+  //
 
   var container =
     svg
@@ -167,5 +169,5 @@ $(()=>{
         .attr("x", 0)
         .attr("width", width)
         .attr("height", 1)
-        .attr("y", currentMonthly)
+        .attr("y", contribScale(currentMonthly))
 });

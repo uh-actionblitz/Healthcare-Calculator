@@ -7,7 +7,7 @@ const calculatorSlider = ({
 
     var x = scale.clamp(true);
 
-    console.log(x);
+    (x);
 
     var slider = container.append("g")
         .attr("class", "slider")  ;
@@ -23,7 +23,7 @@ const calculatorSlider = ({
         .call(d3.drag()
             .on("start.interrupt", function() { slider.interrupt(); })
             .on("start drag", function() {
-              console.log(scale(d3.event.x))
+              (scale(d3.event.x))
               handle.attr("cx", d3.event.x);
               callback(scale.invert(d3.event.x));
             }));

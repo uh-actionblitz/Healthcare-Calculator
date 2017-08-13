@@ -66,7 +66,7 @@ class Stage {
         }
 
     });
-    console.log(data);
+    (data);
     svg.append("path")
         .datum(data)
         .attr("class", "line")
@@ -120,6 +120,6 @@ class Stage {
 
 
   highlight(options) {
-    console.log(options);
+    (options);
   }
 }

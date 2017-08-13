@@ -4,7 +4,7 @@
 //   }
 //
 //   render() {
-//     console.log("XXX");
+//     ("XXX");
 //
 //     var s2 = d3.scale.log().domain([1,100]).range([1,20]);
 //     var s = d3.scale.log().domain([1,100]).range([1,300000]);
@@ -23,10 +23,10 @@
 //       } else {
 //         continue;
 //       }
-//       console.log("LOG", Math.floor(s2(x)));
+//       ("LOG", Math.floor(s2(x)));
 //
 //       xTicks.push(Math.floor(s(x)/100) * 100);
-//       console.log("Pushing", Math.floor(s(x)/100) * 100)
+//       ("Pushing", Math.floor(s(x)/100) * 100)
 //       if (xVal < 25000) {
 //         yValues.push(0)
 //       } else if (xVal > 25000 && xVal <= 50000) {
@@ -44,10 +44,10 @@
 //     xTicks.push(300000);
 //     yValues.push(Math.floor(300000 * 0.16 / 12))
 //
-//     // console.log(xTicks);
+//     // (xTicks);
 //     // var data_test_original = ['data1'].concat(yValues);
 //     //
-//     // console.log("XX", data_test_original);
+//     // ("XX", data_test_original);
 //     // var chart_test = c3.generate({
 //     //     bindto: '#stage',
 //     //     data: {
@@ -67,15 +67,15 @@
 //     //     },
 //     // });
 //
-//     console.log("XXX");
+//     ("XXX");
 //     var data_test = ['data1'];
-//     console.log(xTicks);
+//     (xTicks);
 //     var data = []
 //     for(var i=0; i<xTicks.length; i++){
-//       console.log(xTicks[i]);
+//       (xTicks[i]);
 //         data[i] = Math.log(xTicks[i]) / Math.LN10;
 //     }
-//     console.log(data_test);
+//     (data_test);
 //
 //     var chart_test = c3.generate({
 //         bindto: '#stage',
@@ -105,6 +105,6 @@
 //   }
 //
 //   highlight(options) {
-//     console.log(options);
+//     (options);
 //   }
 // }
