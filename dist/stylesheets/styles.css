@@ -71,70 +71,91 @@ h4 {
 h5 {
   font-size: 14px; }
 
-html, body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  position: relative; }
+#chart .y--axis.y--axis--monthly .domain {
+  stroke-width: 2px;
+  stroke: lightgray; }
 
-body {
-  text-align: center; }
+#chart .y--axis.y--axis--monthly .tick line {
+  stroke: lightgray; }
 
-#calculator {
-  display: inline-block;
-  width: 90vmin;
-  height: 90vmin;
-  background-color: whitesmoke;
-  position: relative; }
+#chart .x--axis.x--axis--income .domain {
+  stroke-width: 2px;
+  stroke: lightgray; }
 
-#annual-salary {
-  height: 1.8em;
-  width: calc(100% - 33px);
-  position: absolute;
-  bottom: 0; }
-  #annual-salary .d3-slider-handle {
-    height: 2.2em;
-    cursor: col-resize; }
-    #annual-salary .d3-slider-handle::after {
-      content: "";
-      height: 87vmin;
-      border-right: 3px solid black;
-      position: absolute;
-      bottom: 30px; }
-    #annual-salary .d3-slider-handle #chosen-salary {
-      transform: rotate(-38deg);
-      position: absolute;
-      background-color: yellow;
-      padding: 3px 7px;
-      border-radius: 27px 0 34px 24px;
-      top: 44px;
-      right: -3px; }
-  #annual-salary .d3-slider-axis-bottom {
-    top: 1.8em; }
+#chart .x--axis.x--axis--income .tick line {
+  stroke: lightgray; }
 
-#premiums {
-  width: 1.8em;
-  height: calc(100% - 33px);
-  position: absolute;
-  right: 0;
-  top: 0; }
-  #premiums .d3-slider-handle {
-    width: 2.2em;
-    cursor: row-resize; }
-    #premiums .d3-slider-handle::after {
-      content: "";
-      width: 87vmin;
-      border-top: 3px solid black;
-      position: absolute;
-      right: 30px;
-      top: 6px; }
-  #premiums .d3-slider-axis-right {
-    left: 1.8em; }
+#chart .current-expense {
+  stroke-width: 1px;
+  stroke: blue; }
 
-#stage {
-  width: calc(100% - 30px);
-  height: calc(100% - 30px);
-  background-color: lightgray;
-  position: absolute;
-  top: 0;
-  left: 0; }
+#chart .bar .contribution {
+  fill: #AAAAAA; }
+
+#chart .bar .employer {
+  fill: #CCCCCC; }
+
+#chart .bar .savings {
+  display: none; }
+
+#chart [selected=true] .contribution {
+  fill: gold; }
+
+#chart [selected=true] .employer {
+  fill: lightyellow; }
+
+#chart [selected=true] .savings {
+  display: block;
+  fill: lightgreen; }
+
+#chart .bar--value-container rect.bar-container {
+  fill: lightyellow;
+  stroke: gold;
+  stroke-width: 3px;
+  transform: translate(0px, -5px); }
+
+#chart .bar--value-container text.bar--value {
+  transform: translate(2px, 8px);
+  font-family: sans-serif;
+  font-size: 12px; }
+
+#chart .income--value-container .income--container {
+  fill: whitesmoke;
+  stroke: lightgray;
+  stroke-width: 2px;
+  border-radius: 4px;
+  transform: translate(0px, -5px); }
+
+#chart .income--value-container .income--value {
+  font-family: sans-serif;
+  font-size: 12px;
+  transform: translate(2px, 8px); }
+
+.slider .ticks {
+  font: 10px sans-serif; }
+
+.slider .track,
+.slider .track-inset,
+.slider .track-overlay {
+  stroke-linecap: round; }
+
+.slider .track {
+  stroke: #000;
+  stroke-opacity: 0.3;
+  stroke-width: 10px; }
+
+.slider .track-inset {
+  stroke: #ddd;
+  stroke-width: 8px; }
+
+.slider .track-overlay {
+  pointer-events: stroke;
+  stroke-width: 50px;
+  stroke: transparent;
+  cursor: crosshair; }
+
+.slider .handle {
+  fill: #fff;
+  stroke: #000;
+  stroke-opacity: 0.5;
+  stroke-width: 1.25px; }
