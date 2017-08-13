@@ -86,8 +86,9 @@ $(()=>{
   var incomeScale = d3.scaleLog()
                     .domain([Math.pow(10,4), 6 * Math.pow(10,5)])
                     .range([0, width]);
+
   var contribScale = d3.scaleLinear()
-                        .domain([0, 7000])
+                        .domain([0, computeContribution(INCOME) + 1000])
                         .range([height, 0]);
 
   // AXIS
@@ -190,6 +191,43 @@ $(()=>{
       barsItem.attr("selected", (d, ind) => selectedItem === ind);
       updateContribText(value);
       updateIncomeLabel(value, height);
+
+      if (currentMonthly < computeContribution(value)) {
+        contribScale.domain([0, computeContribution(value) + 1000]);
+      } else {
+        contribScale.domain([0, currentMonthly + 1000]);
+      }
+
+      yAxis = d3.axisRight(contribScale)
+      svg.select('.y--axis--monthly').call(yAxis);
+
+      //Update savings Look
+      barsItem.select("rect.savings")
+              .attr("height", (d) => {
+                const savingsHeight =  height - contribScale(currentMonthly - computeContribution(d));
+                console.log(savingsHeight);
+                if ( savingsHeight < 0) return 0;
+
+                return savingsHeight;
+              })
+              .attr("y", (d) => contribScale(currentMonthly));
+
+      //Update employer cover
+      barsItem.select(".employer")
+              .attr("y", (d) => {
+                return contribScale(computeEmployerContrib(d));
+              })
+              .attr("height", (d) => height - contribScale(computeEmployerContrib(d)))
+
+
+      barsItem.select(".contribution")
+        .attr("y", (d) => {
+          return contribScale(computeContribution(d));
+        })
+        .attr("height", (d) => height - contribScale(computeContribution(d) - computeEmployerContrib(d)));
+
+      svg.select(".current-expense").attr("y", contribScale(currentMonthly));
+
     }
   }));
 
