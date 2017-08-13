@@ -170,7 +170,7 @@ $(()=>{
         .attr("width", barWidth)
         .attr("height", (d) => {
           const savingsHeight =  height - contribScale(currentMonthly - computeContribution(d));
-          console.log(savingsHeight);
+
           if ( savingsHeight < 0) return 0;
 
           return savingsHeight;
@@ -205,7 +205,7 @@ $(()=>{
       barsItem.select("rect.savings")
               .attr("height", (d) => {
                 const savingsHeight =  height - contribScale(currentMonthly - computeContribution(d));
-                console.log(savingsHeight);
+
                 if ( savingsHeight < 0) return 0;
 
                 return savingsHeight;
