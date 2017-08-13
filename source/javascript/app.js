@@ -4,6 +4,7 @@ const INCOME = 60000,
       EMPLOYED = true;
 
 const currentMonthly = (DEDUCTIBLE/12) + PREMIUM;
+const padding = 5;
 
 $(()=>{
 
@@ -32,7 +33,6 @@ $(()=>{
     const totalContribution = computeContribution(d);
     const selfShare = totalContribution * 0.2 , bossShare = totalContribution * 0.8;
     const data = d3.select(".bar[selected=true]").attr("data-val");
-    const padding = 5;
     const y = contribScale(computeContribution(data));
     const x = incomeScale(data);
 
@@ -49,7 +49,24 @@ $(()=>{
 
     textChild.text(d3.format("$.2s")(parseInt(totalContribution)));
 
-  }
+  };
+
+  const updateIncomeLabel = (d, y) => {
+
+    const x = incomeScale(d);
+
+
+    var textChild = incomeValue.select("text");
+    var rectChild = incomeValue.select("rect")
+    var bbox = textChild.node().getBBox();
+
+    incomeValue.attr("transform",`translate(${x - bbox.width/4}, ${y + 30})`);
+    rectChild.attr("width", bbox.width + padding)
+      .attr("height", bbox.height + padding);
+
+    textChild.text(d3.format("$,.4s")(d));
+
+  };
   //1. Show a bar chart
 
   //2. Bar chart should have a guide at the top of it
@@ -112,10 +129,11 @@ $(()=>{
 
   var barValue = svg.append("g").attr("class", "bar--value-container");
       barValue.append("rect").attr("class", "bar-container");
-      barValue.append("text").attr("class", "bar--value")
+      barValue.append("text").attr("class", "bar--value");
 
-                  ;
-  //
+  var incomeValue = svg.append("g").attr("class", "income--value-container");
+    incomeValue.append("rect").attr("class", "income--container");
+    incomeValue.append("text").attr("class", "income--value");
 
   // Build the bars
   var barsItem = bars.selectAll(".bar")
@@ -158,9 +176,12 @@ $(()=>{
       var selectedItem = Math.floor(incomeScale(value)/(barWidth+barGap));
       barsItem.attr("selected", (d, ind) => selectedItem === ind);
       updateContribText(value);
+      updateIncomeLabel(value, height);
     }
   }));
+
   updateContribText(INCOME);
+  updateIncomeLabel(INCOME, height);
 
   svg.append("g")
         .attr("transform", "translate(" + margin.left/2 + "," + margin.top + ")")
