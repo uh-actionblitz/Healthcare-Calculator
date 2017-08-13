@@ -95,11 +95,18 @@ h5 {
 #chart .bar .employer {
   fill: #CCCCCC; }
 
+#chart .bar .savings {
+  display: none; }
+
 #chart [selected=true] .contribution {
   fill: gold; }
 
 #chart [selected=true] .employer {
   fill: lightyellow; }
+
+#chart [selected=true] .savings {
+  display: block;
+  fill: lightgreen; }
 
 #chart .bar--value-container rect.bar-container {
   fill: lightyellow;

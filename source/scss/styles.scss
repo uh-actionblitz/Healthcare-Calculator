@@ -38,6 +38,9 @@
     .employer {
       fill: #CCCCCC;
     }
+    .savings {
+      display: none;
+    }
   }
 
   [selected=true] {
@@ -46,6 +49,10 @@
     }
     .employer {
       fill: lightyellow;
+    }
+    .savings {
+      display: block;
+      fill: lightgreen;
     }
   }
 

@@ -1,5 +1,5 @@
 const INCOME = 60000,
-      DEDUCTIBLE = 5000,
+      DEDUCTIBLE = 8000,
       PREMIUM = 600,
       EMPLOYED = true;
 
@@ -91,7 +91,7 @@ $(()=>{
                         .range([height, 0]);
 
   // AXIS
-  var payPoints = [10000, 25000, 50000, 60000, 75000, 100000, 200000, 300000, 600000];
+  var payPoints = [10000, 30000, 50000, 60000, 80000, 100000, 200000, 300000, 600000];
   var xAxis = d3.axisBottom(incomeScale)
                 .tickValues(payPoints)
                 .tickFormat((d)=>d3.format("$.1s")(d));
@@ -161,6 +161,19 @@ $(()=>{
         })
         .attr("width", barWidth)
         .attr("height", (d) => height - contribScale(computeEmployerContrib(d)))
+
+      barsItem.append("rect")
+        .attr("class", "savings")
+        .attr("x", (d, ind) => ind * (barWidth + barGap))
+        .attr("y", (d) => contribScale(currentMonthly))
+        .attr("width", barWidth)
+        .attr("height", (d) => {
+          const savingsHeight =  height - contribScale(currentMonthly - computeContribution(d));
+          console.log(savingsHeight);
+          if ( savingsHeight < 0) return 0;
+
+          return savingsHeight;
+        })
   //
 
   var container =
